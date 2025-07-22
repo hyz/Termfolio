@@ -1,7 +1,7 @@
-use leptos::Signal;
+use leptos::prelude::*;
 use leptos_use::{
-    use_color_mode_with_options, use_cycle_list_with_options, ColorMode, UseColorModeOptions,
-    UseColorModeReturn, UseCycleListOptions, UseCycleListReturn,
+    use_color_mode_with_options, use_cycle_list_with_options, ColorMode, UseColorModeOptions, UseColorModeReturn,
+    UseCycleListOptions, UseCycleListReturn,
 };
 
 // Last theme will be default

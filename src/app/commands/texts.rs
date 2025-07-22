@@ -25,7 +25,7 @@ pub const CREDITS: &str = r#"<span class="grn"> _____________  __  ___________  
 </span>
 Terminal style portfolio website. 
  
-  <a href="https://github.com/shettysach" target="_blank" class="blu semibold">Github</a>: github.com/shettysach
+  <span class="blu semibold">Github</span>: <a href="https://github.com/hyz/termfolio" target="_blank">hyz/termfolio</a>
 
   <a href="https://github.com/shettysach/termfolio" target="_blank" class="blu semibold">Repo</a>: github.com/shettysach/termfolio
 
@@ -49,5 +49,4 @@ Terminal style portfolio website.
 "#;
 
 pub const READ_JSON_ERROR: &str = r#"<span class="rd semibold">Error reading config.json</span>"#;
-pub const FETCH_GITHUB_ERROR: &str =
-    r#"<span class="rd semibold">Error fetching data from Github.</span>"#;
+pub const FETCH_GITHUB_ERROR: &str = r#"<span class="rd semibold">Error fetching data from Github.</span>"#;

@@ -2,12 +2,11 @@ use super::{About, Links, Profile, Repository};
 use std::collections::HashMap;
 
 // Ascii art used for Github
-const NEOFETCH: &str = include_str!("../../../configs/neofetch.txt");
-
+const NEOFETCH: &str = include_str!(concat!(env!("CARGO_MANIFEST_DIR"), "/configs/neofetch.txt"));
 // Language icons for repos
-const RUST: &str = include_str!("../../../configs/lang_icons/rust.txt");
-const PYTHON: &str = include_str!("../../../configs/lang_icons/python.txt");
-const GITHUB: &str = include_str!("../../../configs/lang_icons/github.txt");
+const RUST: &str = include_str!(concat!(env!("CARGO_MANIFEST_DIR"), "/configs/lang_icons/rust.txt"));
+const PYTHON: &str = include_str!(concat!(env!("CARGO_MANIFEST_DIR"), "/configs/lang_icons/python.txt"));
+const GITHUB: &str = include_str!(concat!(env!("CARGO_MANIFEST_DIR"), "/configs/lang_icons/github.txt"));
 
 pub fn format_about(about: About) -> String {
     let exp_string: String = about
@@ -15,8 +14,7 @@ pub fn format_about(about: About) -> String {
         .iter()
         .map(|exp| {
             format!(
-                r#"<span class="blu semibold">Title:</span> {}
-<span class="blu semibold">Description:</span> 
+                r#"<span class="blu semibold">Title:</span> {}<br/><span class="blu semibold">Description:</span> 
 {}"#,
                 exp.title,
                 exp.description
@@ -36,35 +34,30 @@ pub fn format_about(about: About) -> String {
             format!(
                 r#"<span class="blu semibold">Institute: </span>{}
 <span class="blu semibold">Course:</span> {}
-<span class="blu semibold">Duration:</span> {}
-"#,
+<span class="blu semibold">Duration:</span> {}"#,
                 edu.institute, edu.course, edu.duration
             )
         })
         .collect::<Vec<String>>()
         .join("\n");
 
+    //<div class="grn semibold">{}</div>
     let text = format!(
-        r#"<center class="grn semibold">{}</center>
-{}
+        r#"{}
 
-<u class="rd semibold">Interests</u>
-
-{}
-
-<u class="rd semibold">Languages</u>
+<h2 class="rd semibold side-borders">Interests</h2>
 
 {}
 
-<u class="rd semibold">Experience</u>
+<h2 class="rd semibold side-borders">Languages</h2>
 
 {}
 
-<u class="rd semibold">Education</u>
+<h2 class="rd semibold side-borders">Experience</h2>
 
 {}
 "#,
-        about.name.to_uppercase(),
+        //about.name.to_uppercase(),
         about.intro,
         about
             .interests
@@ -74,14 +67,11 @@ pub fn format_about(about: About) -> String {
             .join("\n"),
         format_langs(about.langs),
         exp_string,
-        edu_string
     );
+    //<h2 class="rd semibold side-borders">Education</h2> {} , edu_string
 
     format!(
-        r#"
-
-
-<div class="row" style="display: flex; flex-direction: row; align-items: center; justify-content: center;"> 
+        r#"<div class="row" style="display: flex; flex-direction: row; align-items: center; justify-content: left;"> 
 <div class="about">{}</div>
 </div>
 "#,
@@ -141,15 +131,8 @@ pub fn format_repos(repos: &[Repository]) -> String {
 <span class="rd semibold">Language:</span> <span class="blu">{}</span>
 <span class="rd semibold">Stars:</span> <span class="ylw">{}</span>
 <span class="rd semibold">Forks:</span> <span class="ylw">{}</span>
-
         "#,
-                repo.author,
-                repo.name,
-                repo.name,
-                repo.description,
-                repo.language,
-                repo.stars,
-                repo.forks
+                repo.author, repo.name, repo.name, repo.description, repo.language, repo.stars, repo.forks
             );
 
             format!(
@@ -170,7 +153,8 @@ pub fn format_links(links: Links) -> String {
     let mut result = String::new();
 
     result += &format!(
-        r#"  <a href="https://github.com/{}" target="_blank" class="semibold"  style="color:var(--purple);">Github</a>: github.com/{}
+        r#"
+  &nbsp;&nbsp;<span class="semibold" style="color:var(--purple);">Github</span>: <a href="https://github.com/{}" target="_blank"> github.com/{}</a>
 "#,
         links.github, links.github
     );
@@ -178,7 +162,7 @@ pub fn format_links(links: Links) -> String {
     if let Some(email) = &links.email {
         result += &format!(
             r#"
-  <a href="mailto:{}" target="_blank" class="semibold" style="color:var(--orange);">Email</a>: {}
+  <span class="semibold" style="color:var(--orange);">Email</span>: <a href="mailto:{}" target="_blank">{}</a>
   "#,
             email, email
         );

@@ -8,7 +8,7 @@ use tokio::try_join;
 mod formats;
 mod structs;
 
-const JSON: &str = include_str!("../../configs/config.json");
+const JSON: &str = include_str!(concat!(env!("CARGO_MANIFEST_DIR"), "/configs/config.json"));
 
 // Once statics
 
@@ -76,10 +76,7 @@ async fn fetch_github() -> String {
     match read_config() {
         Some(config) => {
             let info_url = format!("https://api.github.com/users/{}", config.github);
-            let stats_url = format!(
-                "https://api.github-star-counter.workers.dev/user/{}",
-                config.github
-            );
+            let stats_url = format!("https://api.github-star-counter.workers.dev/user/{}", config.github);
 
             match try_join!(async { reqwest::get(&info_url).await }, async {
                 reqwest::get(&stats_url).await

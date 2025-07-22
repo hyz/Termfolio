@@ -2,15 +2,9 @@ mod fetch;
 mod texts;
 pub use fetch::get_prompt;
 
-pub async fn command(inp0: &str, inp1: &str) -> String {
-    let result = match inp0 {
+pub async fn run_command(command: &str, args: &Vec<String>) -> Result<String, String> {
+    let result = match command {
         "help" | "termfolio" => texts::HELP,
-        "about" => &fetch::get_about(),
-        "github" | "neofetch" | "fastfetch" => &fetch::get_github().await,
-        "repos" | "onefetch" => &fetch::get_repos().await,
-        "links" => fetch::get_contacts(),
-        "credits" => texts::CREDITS,
-
         "cd" => "Nowhere to go.",
         "mkdir" | "touch" => "Nowhere to create.",
         "rm" | "rmdir" => "Nothing to destroy.",
@@ -24,12 +18,20 @@ pub async fn command(inp0: &str, inp1: &str) -> String {
         "su" | "sudo" | "chmod" => "With great power comes great responsibility.",
         "whoami" => "Despite everything, it's still you.",
         "exit" => "Hasta la vista.",
-        "echo" => inp1.trim(),
+        "links" => fetch::get_contacts(),
+        "credits" => texts::CREDITS,
         "" => "",
-        _ => &format!("{inp0}: command not found"),
+        _ => {
+            return Ok(match command {
+                "about" => fetch::get_about(),
+                "github" | "neofetch" | "fastfetch" => fetch::get_github().await,
+                "repos" | "onefetch" => fetch::get_repos().await,
+                "echo" => args.join(" "),
+                _ => return Err(format!("{command}: command not found")),
+            })
+        }
     };
-
-    result.to_string()
+    Ok(result.trim().into())
 }
 
 pub fn autocomplete(inp: &str) -> &str {

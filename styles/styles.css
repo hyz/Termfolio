@@ -26,6 +26,26 @@ input {
   outline: none;
   border: none;
   width: 460px;
+  margin-bottom: 12px;
+}
+
+#prompt-form-input {
+  background-color: rgba(0.5, 0.5, 0.5, 0.0);
+  text-decoration: underline;
+  border-bottom: 2px solid goldenrod;
+  padding-bottom: 2px;
+}
+
+#observer-target {
+  position: absolute;
+  right: 20px;
+  width: 200px;
+  transition: all 0.3s ease;
+}
+
+#floating-element.sticky {
+  position: fixed;
+  bottom: 20px;
 }
 
 form {
@@ -38,6 +58,13 @@ form {
 
 .semibold {
   font-weight: 500;
+}
+
+.side-borders {
+  display: inline-block;
+  padding: 0 15px;
+  border-left: 1px dashed;
+  border-right: 1px dashed;
 }
 
 .rd {
@@ -65,7 +92,7 @@ form {
 .output {
   white-space: pre-wrap;
   word-wrap: break-word;
-  margin-bottom: 22px;
+  margin-bottom: 12px;
 }
 
 .about,
@@ -76,12 +103,18 @@ form {
   float: left;
 }
 
+.underscore {
+  text-decoration: underline;
+  border-bottom: 2px solid goldenrod;
+  padding-bottom: 2px;
+}
+
 /* About */
 
 .about {
-  flex: 0 0 calc(60%);
-  outline: 3.5px solid var(--green);
-  outline-offset: 25px;
+  flex: 0 0 calc(80%);
+  /*outline: 3.5px solid var(--green);
+  outline-offset: 25px;*/
 }
 
 /* Github fetch */
@@ -124,4 +157,13 @@ form {
   font-size: 1.2rem;
   text-align: center;
   padding-top: 30vh;
+}
+
+a {
+  text-decoration: underline dotted green;
+}
+
+a:hover {
+  text-decoration: underline solid lightgreen;
+  transition: all 0.5s ease;
 }

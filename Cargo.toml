@@ -6,9 +6,21 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-leptos = { version = "0.5.7", features = ["csr", "nightly"] }
-leptos-use = "0.9.0"
-reqwest = { version = "0.12.9", features = ["json"] }
-serde = "1.0.215"
-serde_json = "1.0.133"
-tokio = { version = "1.41.1", features = ["macros", "sync"] }
+leptos = { version = "*", features = ["csr", "nightly", "islands"] }
+leptos-use = "*"
+reqwest = { version = "0.12", features = ["json"] }
+serde = "1"
+serde_json = "1"
+tokio = { version = "1", features = ["macros", "sync"] }
+web-sys = { version = "0.3", features = [
+    "ScrollBoxObject",
+    "IntersectionObserverEntry",
+    "IntersectionObserverEntryInit",
+    "AddEventListenerOptions",
+    "Event",
+    "EventListener",
+    "EventTarget",
+] }
+itertools = "0.14"
+thiserror = "2"
+shlex = "1.3.0"

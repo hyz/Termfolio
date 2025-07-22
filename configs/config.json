@@ -1,34 +1,50 @@
 {
-  "github": "shettysach",
-
+  "github": "hyz",
   "about": {
-    "name": "Sachith C Shetty",
-    "intro": "Hello, I'm Sachith. I'm a CSE student, currently exploring AI/ML and memory safe languages like Rust. I am passionate about creating projects and learning how to code well.",
-
-    "interests": ["Artificial Intelligence", "Machine Learning", "LLMs", "GNU-Linux", "CLIs / TUIs", "Embedded Systems", "WASM"],
-
-    "langs": ["Rust", "Python", "C", "C++", "Bash", "Dart"],
-
+    "name": "Woodie",
+    "intro_1": "Hi, I'm Woodie. I'm a developer specializing in Linux environments and socket networking. After years of working with C++, I've transitioned to Rust for its memory safety advantages. Currently, I'm learning AI development to build applications with intelligent capabilities.",
+    "": "Hi, I'm Woodie. I'm a systems developer with strong backend expertise, particularly in Linux environments and socket networking. My programming journey evolved from C++ to Rust, embracing memory-safe for robust systems development. I'm proficient with Vim as my primary editor and have experience across the stack, including some cross-platform development. Currently, I'm expanding my skillset by learning AI application development to build intelligent systems. My core strength lies in server-side architectures, but I enjoy tackling challenges across different layers of the tech stack.",
+    "intro": "Hi, I'm Woodie. I'm a developer who loves working with Linux and building stuff for the server-side. I've worked a lot with socket networking and used to write code in C++, but these days I'm all about Rust—it's way safer for memory management! Right now, I'm diving into AI development, learning how to build cool applications. Always learning, always coding!",
+    "3": "My programming journey evolved from C++ to Rust, embracing memory-safe for robust systems development.",
+    "interests": [
+      "LLMs / Machine Learning",
+      "GNU-Linux",
+      "CLIs / TUIs",
+      "Embedded Systems",
+      "Bevy"
+    ],
+    "langs": [
+      "Rust",
+      "Python",
+      "C",
+      "C++",
+      "Bash",
+      "js",
+      "Go"
+    ],
     "experience": [
       {
-        "title": "Intern at Thingularity India",
-        "description": [ "Created a demo mobile app using Flutter(Dart, Android SDK)", "Helped in testing APIs and preparing test reports using Postman API.", "Learnt about embedded systems and programming, interacting with Bluetooth Low Energy (BLE) devices and Raspberry Pi (Python), and using REST API to get and post data to servers."]
+        "title": "<a href='https://github.com/hyz/Termfolio'>Terminal Style Portfolio</a>",
+        "description": [
+          "Build a simple personal webpage using Leptos/Rust/Wasm",
+          "Learning about web systems and rust programming.",
+          "Features include command-based navigation, dynamic content rendering.",
+          "Demonstrating WASM-powered web development."
+        ]
       }
     ],
-
     "education": [
       {
-        "institute": "VIT, Vellore",
-        "course": "BTech, CSE Core",
-        "duration": "2021 - 2025"
+        "institute": "SZU",
+        "course": "CSE Core",
+        "duration": " - 2000"
       }
     ]
   },
-
   "links": {
-    "github": "shettysach",
-    "email": "ShettySachith47@gmail.com",
-    "linkedin": "in/sachith-shetty-3a165724b",
+    "github": "hyz",
+    "email": "0xeeef@gmail.com",
+    "discord": "wooloopx",
     "twitter": null
   }
 }

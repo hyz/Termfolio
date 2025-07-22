@@ -1,5 +1,5 @@
-use crate::commands::{banner, get_prompt};
-use leptos::{component, view, IntoView};
+use super::commands::{banner, get_prompt};
+use leptos::{component, prelude::*, view, IntoView};
 
 #[component]
 pub fn Banner() -> impl IntoView {
