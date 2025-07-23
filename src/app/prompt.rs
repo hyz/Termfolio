@@ -178,8 +178,8 @@ pub fn CommandLine(
     view! {
         <div id="observer-target" />
         <div id="floating-element">
+            <span class="inline underscore">{get_prompt}</span>
             <form id="prompt-form" on:submit=on_submit node_ref=form_ref>
-                <p class="inline underscore">{get_prompt}</p>
                 <input
                     node_ref=input_ref
                     id="prompt-form-input"

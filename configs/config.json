@@ -3,15 +3,15 @@
   "about": {
     "name": "Woodie",
     "intro_1": "Hi, I'm Woodie. I'm a developer specializing in Linux environments and socket networking. After years of working with C++, I've transitioned to Rust for its memory safety advantages. Currently, I'm learning AI development to build applications with intelligent capabilities.",
-    "": "Hi, I'm Woodie. I'm a systems developer with strong backend expertise, particularly in Linux environments and socket networking. My programming journey evolved from C++ to Rust, embracing memory-safe for robust systems development. I'm proficient with Vim as my primary editor and have experience across the stack, including some cross-platform development. Currently, I'm expanding my skillset by learning AI application development to build intelligent systems. My core strength lies in server-side architectures, but I enjoy tackling challenges across different layers of the tech stack.",
-    "intro": "Hi, I'm Woodie. I'm a developer who loves working with Linux and building stuff for the server-side. I've worked a lot with socket networking and used to write code in C++, but these days I'm all about Rust—it's way safer for memory management! Right now, I'm diving into AI development, learning how to build cool applications. Always learning, always coding!",
+    "": "Hi, I'm Woodie. I'm a systems developer with strong backend expertise, particularly in Linux environments and socket networking. My programming journey evolved from C++ to Rust, embracing memory-safe for robust systems development. I'm have experience across the stack, including some cross-platform development. Currently, I'm expanding my skillset by learning AI application development to build intelligent systems. My core strength lies in server-side architectures, but I enjoy tackling challenges across different layers of the tech stack.",
+    "intro": "Hi, I'm Woodie. I'm a developer who loves working with Linux and building stuff for the server-side and socket networking. I've used to write code in C++, but these days I'm all about Rust—it's way safer for memory management! Right now, I'm diving into AI development, learning how to build cool applications. <br/><br/>Always learning, always coding!",
     "3": "My programming journey evolved from C++ to Rust, embracing memory-safe for robust systems development.",
     "interests": [
+      "Arch Linux / Fvwm",
       "LLMs / Machine Learning",
-      "GNU-Linux",
-      "CLIs / TUIs",
-      "Embedded Systems",
-      "Bevy"
+      "Rust / Leptos / Bevy",
+      "CLIs / Bash / Scripts",
+      "Embedded Systems"
     ],
     "langs": [
       "Rust",
