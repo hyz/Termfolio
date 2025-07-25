@@ -1,30 +1,23 @@
 use leptos::{component, logging::log, prelude::*, view, IntoView};
+use std::sync::Arc;
 
-use crate::app::{commands::get_prompt, HistoryRecord, HistoryRecords};
-
+use crate::app::{commands::get_prompt, HistoryRecords};
 #[component]
 pub fn History(history: RwSignal<HistoryRecords>) -> impl IntoView {
-    let each_record = move || {
-        history.with(|HistoryRecords(his)| {
-            let his = his.lock().unwrap();
-            his.iter()
-                .map(|HistoryRecord(cmd, res)| (cmd.id, format!("{cmd}"), result_string(res)))
-                .collect::<Vec<_>>()
-                .into_iter()
-        })
-    };
+    let each_record =
+        move || history.with(|HistoryRecords(his)| his.iter().map(Arc::clone).collect::<Vec<_>>().into_iter());
     view! {
         <div>
         <For
             each=each_record
-            key=|k| k.0 //user_input.clone() //.line.as_str()
-            children=move |(_i, user_input, result)| {
-                //let user_input = format!("{}",his.0);//user_input.clone();
-                //let output = result_string(his);
+            key=|rec| rec.0.id
+            children=move |rec| {
+                let user_input = format!("{}",rec.0);//user_input.clone();
+                let result = result_string(&rec.1);
                 //leptos::logging::log!("{} ...{:?}", user_input, output.len());
                 view! {
                     <div>
-                        <p class="inline">{get_prompt}</p>
+                        <span class="inline">{get_prompt}</span>
                         <input
                             inert
                             value=user_input

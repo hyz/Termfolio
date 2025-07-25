@@ -15,7 +15,7 @@ use leptos::{
     view, IntoView,
 };
 use leptos_use::use_event_listener;
-use std::time::Duration;
+use std::{sync::Arc, time::Duration};
 use themes::theme_changer;
 use thiserror::Error;
 
@@ -40,8 +40,9 @@ async fn command_entered<F: Fn()>(
     log!("{} {cmd} {:?}", cmd.id, res.as_ref().map(String::len));
 
     history.update(|HistoryRecords(his)| {
-        let mut his = his.lock().unwrap();
-        his.push_back(HistoryRecord(cmd, res));
+        //let mut his = his.lock().unwrap();
+        //let his = Arc::get_mut(his).unwrap();
+        his.push_back(Arc::new(HistoryRecord(cmd, res)));
         while his.len() > 20 {
             his.pop_front();
         }

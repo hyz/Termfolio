@@ -21,7 +21,7 @@ pub fn keyboard_handler(
             "ArrowUp" => {
                 ev.prevent_default();
                 history.with_untracked(|HistoryRecords(his)| {
-                    let his = his.lock().unwrap();
+                    //let his = his.lock().unwrap();
                     if index < his.len() {
                         let c = format!("{}", his[index].0);
                         input.set_value(&c);
@@ -34,7 +34,7 @@ pub fn keyboard_handler(
             "ArrowDown" => match index.cmp(&1) {
                 Ordering::Greater => {
                     history.with_untracked(|HistoryRecords(his)| {
-                        let his = his.lock().unwrap();
+                        //let his = his.lock().unwrap();
                         let c = format!("{}", his[index - 2].0);
                         //hist.0[index - 2].user_input
                         input.set_value(&c);

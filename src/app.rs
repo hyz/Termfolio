@@ -33,11 +33,13 @@ impl std::fmt::Display for UserCommand {
     }
 }
 
+pub type OutputStr = std::borrow::Cow<'static, str>;
+
 #[derive(Debug, Clone)]
 pub struct HistoryRecord(pub UserCommand, pub Result<String, String>);
 
 #[derive(Debug, Clone, Default)]
-pub struct HistoryRecords(pub Arc<Mutex<VecDeque<HistoryRecord>>>);
+pub struct HistoryRecords(pub VecDeque<Arc<HistoryRecord>>);
 
 #[component]
 pub fn App() -> impl IntoView {

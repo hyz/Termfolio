@@ -36,7 +36,7 @@ pub async fn general_commands<F: Fn()>(
     //set_output: WriteSignal<String>,
     //submitter: WriteSignal<usize>,
     //updater: WriteSignal<VecDeque<CommandLine>>,
-    HistoryRecords(history): &HistoryRecords,
+    HistoryRecords(his): &HistoryRecords,
 ) -> Result<String, String> {
     //let value = value.trim().replace("<", "‹").replace(">", "›");
     //let (cmd, args) = value.split_once(char::is_whitespace).unwrap_or((&value, ""));
@@ -50,7 +50,7 @@ pub async fn general_commands<F: Fn()>(
         }
         "history" => {
             use itertools::Itertools;
-            let his = history.lock().unwrap();
+            //let his = history.lock().unwrap();
             let r = his.iter().zip(1..).map(|(h, i)| format!("{i} {}", h.0)).join("\n");
             Ok(r) //set_output.set(hist);
         }
